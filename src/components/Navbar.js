@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <div
       id="sidemenu"
-      className="gap-2 bg-green-900 h-full flex text-gray-250 flex-col w-1/10 "
+      className="gap-2 bg-[rgba(0,0,0,0.75)] border-1 border-white h-full flex text-gray-250 flex-col w-1/10 "
     >
       <div className="flex-col flex h-full">
         <div
@@ -15,7 +15,7 @@ const Navbar = () => {
           <a
             id="menu-icon"
             className=" h-1/6 flex flex-col justify-center items-center "
-            href="/"
+            href="/profile"
           >
             <div
               id="menu-icon"
@@ -40,7 +40,7 @@ const Navbar = () => {
           <a
             id="menu-icon"
             className="h-1/6 flex flex-col justify-center items-center"
-            href=""
+            href="/home"
           >
             <div
               id="menu-icon-img"
@@ -61,7 +61,7 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-            <p className="text-center w-full break-words">My Listings</p>
+            <p className="text-center w-full break-words">Home</p>
           </a>
 
           <a

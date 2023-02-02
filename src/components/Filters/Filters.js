@@ -7,8 +7,8 @@ import SliderPrice from "../../Slider/SliderPrice";
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <button className="Button violet" size="large">
-        Edit profile
+      <button className="Button violet w-1/2" size="large">
+        Filters
       </button>
     </Dialog.Trigger>
     <Dialog.Portal>

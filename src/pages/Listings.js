@@ -16,19 +16,43 @@ const Listings = () => {
         <div className="sm:hidden md:hidden lg:block w-1/12 flex-col h-95/100  ">
           <Navbar />
         </div>
-        <div className="relative w-10/12 h-95/100 bg-black border-1 border-white">
-          <div className=" h-full flex items-start flex-wrap justify-around gap-x-2 gap-y-2 overflow-y-scroll">
-            {data
-              ? data.map((el, index) => {
-                  return (
-                    <ProductTile
-                      name={el.title}
-                      key={index}
-                      src={el.images[0]}
-                    />
-                  );
-                })
-              : ""}
+        <div className="relative w-10/12 h-95/100 bg-[rgba(0,0,0,0.75)] border-1 border-white">
+          <div className="h-1/4 w-full flex justify-between items-center">
+            <div className="w-1/6 h-full flex justify-around items-center">
+              <img
+                class="w-4/5 h-4/5 rounded-full border-1 border-white"
+                src="/docs/images/people/profile-picture-5.jpg"
+                alt="Rounded avatar"
+              />
+            </div>
+            <div className="w-5/6"></div>
+          </div>
+          <div className=" h-3/4 full flex gap-3 flex-col overflow-y-hidden">
+            <div className="h-1/2 w-full flex gap-2 flex-col flex-wrap items-start overflow-x-scroll justify-around">
+              {data
+                ? data.map((el, index) => {
+                    return (
+                      <ProductTile
+                        name={el.title}
+                        key={index}
+                        src={el.images[0]}
+                      />
+                    );
+                  })
+                : ""}
+            </div>
+            <div className="absolute p-5 bottom-70 right-0">
+              <AddProduct />
+            </div>
+            <div className="h-1/2 w-full flex gap-2 flex-col flex-wrap items-start overflow-x-scroll justify-around">
+              <ProductTile />
+              <ProductTile />
+              <ProductTile />
+
+              <ProductTile />
+              <ProductTile />
+              <ProductTile />
+            </div>
           </div>
           <div className="absolute p-5 bottom-0 right-0">
             <AddProduct />

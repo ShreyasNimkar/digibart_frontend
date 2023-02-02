@@ -12,7 +12,7 @@ const Home = () => {
         <div className="sm:hidden md:hidden lg:block w-1/12 flex-col h-95/100  ">
           <Navbar />
         </div>
-        <div className="w-10/12 h-95/100 bg-black border-1 border-white">
+        <div className="w-10/12 h-95/100 bg-[rgba(0,0,0,0.75)] border-1 border-white">
           <div className="h-10/100 flex justify-around items-center">
             <div className="w-1/6"></div>
             <div className="flex justify-center items-center w-full">
@@ -53,18 +53,20 @@ const Home = () => {
               <Filters />
             </div>
           </div>
-          <div className="h-90/100 flex items-start  pt-2 flex-wrap justify-around gap-x-2 gap-y-2 overflow-y-scroll">
-            {data
-              ? data.map((el, index) => {
-                  return (
-                    <ProductTile
-                      name={el.title}
-                      key={index}
-                      src={el.images[0]}
-                    />
-                  );
-                })
-              : ""}
+          <div className="h-90/100 overflow-y-scroll">
+            <div className="h-1/2 flex items-start  pt-2 flex-wrap justify-around gap-x-2 gap-y-2 ">
+              {data
+                ? data.map((el, index) => {
+                    return (
+                      <ProductTile
+                        name={el.title}
+                        key={index}
+                        src={el.images[0]}
+                      />
+                    );
+                  })
+                : ""}
+            </div>
           </div>
         </div>
       </div>
