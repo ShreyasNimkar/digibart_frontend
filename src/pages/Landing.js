@@ -6,7 +6,7 @@ const landing = () => {
       <div className="w-full h-full absolute flex justify-around items-center">
         <img
           className="h-1/2 opacity-90 -z-30 md:h-4/5 xl:h-screen lg:h-screen "
-          src="./assets/pngholo.png"
+          src="./assets/newblob.png"
           alt="blob"
         />
       </div>
