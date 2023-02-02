@@ -13,14 +13,14 @@ const Listings = () => {
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
-        <div className="sm:hidden md:hidden lg:block w-1/12 flex-col h-95/100  ">
+        <div className="xs:hidden md:block lg:block w-1/12 flex-col h-95/100  ">
           <Navbar />
         </div>
-        <div className="relative w-10/12 h-95/100 bg-[rgba(0,0,0,0.75)] border-1 border-white">
+        <div className="relative w-10/12 h-95/100 rounded-tr-3xl bg-[rgba(0,0,0,0.75)] border-1 border-white">
           <div className="h-1/4 w-full flex justify-between items-center">
-            <div className="w-1/6 h-full flex justify-around items-center">
+            <div className="xs:w-3/4 xs:h-3/4 sm:w-1/2 sm:h-full md:h-full md:w-1/6 h-full flex justify-around items-center">
               <img
-                class="w-4/5 h-4/5 rounded-full border-1 border-white"
+                className=" w-4/5 h-4/5 rounded-full border-1 border-white"
                 src="/docs/images/people/profile-picture-5.jpg"
                 alt="Rounded avatar"
               />

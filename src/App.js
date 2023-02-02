@@ -5,7 +5,7 @@ import Signup from "./pages/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Listings from "./pages/Listings";
+import Profile from "./pages/Profile";
 import Product from "./components/Product/Product";
 import Landing from "./pages/Landing";
 import Trade from "./pages/Trade";
@@ -27,7 +27,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Listings />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/trade" element={<Trade />} />
           </Routes>
         </BrowserRouter>

@@ -31,7 +31,7 @@ const Signup = () => {
       />
       <div className="flex w-full h-full justify-around items-center ">
         <div className="w-1/2">
-          <form className="bg-black shadow-md rounded-xl border-1 border-white px-8 pt-6 pb-8 mb-4">
+          <form className="bg-[rgba(0,0,0,0.8)] shadow-md rounded-xl border-1 border-white px-8 pt-6 pb-8 mb-4">
             <div className="mb-4 px-2">
               <label
                 className="block text-gray-700 text-sm font-bold "
@@ -40,7 +40,7 @@ const Signup = () => {
                 Name
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
                 id="name"
                 type="text"
                 placeholder="Full Name"
@@ -50,7 +50,7 @@ const Signup = () => {
                 }}
               />
             </div>
-            <div className="flex justify-around p-2 gap-3 items-center xs:flex-col ">
+            <div className="flex justify-between p-2 gap-3 items-center xs:flex-col ">
               <div className="mb-2">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -59,7 +59,7 @@ const Signup = () => {
                   Contact
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none bg-white border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="phoneNo"
                   type="text"
                   placeholder="+91 XXXXX XXXXX"
@@ -77,7 +77,7 @@ const Signup = () => {
                   Username
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow bg-white  rounded w-full py-2  text-gray-700  focus:outline-none focus:shadow-outline"
                   id="username"
                   type="text"
                   placeholder="Username"
@@ -98,7 +98,7 @@ const Signup = () => {
                   Email ID
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
                   id="email"
                   type="text"
                   placeholder="john.doe@example.com"
@@ -109,7 +109,7 @@ const Signup = () => {
                 />
               </div>
 
-              <div className="flex p-2 gap-3 justify-around items-center">
+              <div className="flex p-2 gap-3 justify-between items-center">
                 <div className="">
                   <label
                     className="block text-gray-700 text-sm font-bold mb-2"
@@ -118,7 +118,7 @@ const Signup = () => {
                     Password
                   </label>
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2  text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     id="password"
                     type="password"
                     placeholder="******************"
@@ -139,7 +139,7 @@ const Signup = () => {
                     Confirm Password
                   </label>
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2  text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline bg-white"
                     id="confirmpassword"
                     type="password"
                     placeholder="******************"
@@ -156,7 +156,7 @@ const Signup = () => {
             </div>
             <div className="flex items-center flex-col justify-between">
               <button
-                className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 w-1/2 text-center hover:bg-blue-700 text-white font-bold py-2  rounded focus:outline-none focus:shadow-outline"
                 type="button"
                 onClick={submitHandler}
               >
@@ -164,7 +164,7 @@ const Signup = () => {
               </button>
               <a
                 className="inline-block mt-3 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                href="#"
+                href="/login"
               >
                 Already Have an account ?
               </a>

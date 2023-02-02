@@ -4,17 +4,21 @@ const Navbar = () => {
   return (
     <div
       id="sidemenu"
-      className="gap-2 bg-[rgba(0,0,0,0.75)] border-1 border-white h-full flex text-gray-250 flex-col w-1/10 "
+      className="gap-2 rounded-l-3xl rounded-r-none bg-[rgba(0,0,0,0.8)] border-1 border-white h-full flex text-gray-250 flex-col w-1/10 "
     >
-      <div className="flex-col flex h-full">
+      <div className="flex-col flex h-full rounded-l-3xl rounded-r-none">
         <div
-          id="menu-icons-container"
+          id="menu-icons-container rounded-l-3xl rounded-r-none"
           className="h-full flex flex-col justify-around "
         >
-          <img id="menu-icon" className="h-1/6" src="favicon.ico" />
+          <img
+            id="menu-icon"
+            className="h-1/6 rounded-r-none"
+            src="/assets/blob3.svg"
+          />
           <a
             id="menu-icon"
-            className=" h-1/6 flex flex-col justify-center items-center "
+            className=" h-1/6 flex flex-col rounded-r-none justify-center items-center "
             href="/profile"
           >
             <div

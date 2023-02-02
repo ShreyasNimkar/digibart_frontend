@@ -29,11 +29,9 @@ const AddProduct = () => {
         <Dialog.Overlay className="DialogOverlay" />
         <Dialog.Content className="DialogContent">
           <Dialog.Title className="DialogTitle ">
-            <p className="text-4xl text-black">Add Your Item</p>
+            <p className="text-4xl mb-1 text-black">Add Your Item</p>
           </Dialog.Title>
-          <Dialog.Description className="DialogDescription">
-            {/* Make changes to your profile here. Click save when you're done. */}
-          </Dialog.Description>
+
           <form className="w-full" action="">
             <div className="mb-2">
               <label
@@ -57,7 +55,7 @@ const AddProduct = () => {
                 Description
               </label>
               <textarea
-                rows={3}
+                rows={1}
                 className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="username"
                 type="text"

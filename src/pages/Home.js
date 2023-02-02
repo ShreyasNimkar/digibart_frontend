@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
-        <div className="sm:hidden md:hidden lg:block w-1/12 flex-col h-95/100  ">
+        <div className="sm:hidden md:block  w-1/12 flex-col h-95/100  ">
           <Navbar />
         </div>
-        <div className="w-10/12 h-95/100 bg-[rgba(0,0,0,0.75)] border-1 border-white">
+        <div className="w-10/12 h-95/100 rounded-tr-3xl bg-[rgba(0,0,0,0.75)] border-1 border-white">
           <div className="h-10/100 flex justify-around items-center">
             <div className="w-1/6"></div>
             <div className="flex justify-center items-center w-full">
