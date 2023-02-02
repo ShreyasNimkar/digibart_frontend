@@ -1,4 +1,4 @@
-import getHandler from "../handlers/postHandler.js";
+import getHandler from "../handlers/getHandler.js";
 import postHandler from "../handlers/postHandler.js";
 import Toaster from "../utils/toaster.js";
 import envHandler from "../managers/envHandler.js";
@@ -15,3 +15,14 @@ export const getAllItems = async () => {
     return res.data.data;
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };
+
+export const getUserItems = async () => {
+  const loader = Toaster.startLoad("Loading your Products..");
+  const res = await getHandler(`${URL}/listed/`, true);
+
+  if (res.status === 1) {
+    Toaster.stopLoad(loader, "Products Loaded", 1);
+    return res.data.data;
+  } else Toaster.stopLoad(loader, res.data.message, 0);
+};
+

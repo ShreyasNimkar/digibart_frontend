@@ -3,10 +3,9 @@ import Navbar from "../components/Navbar";
 import Filters from "../components/Filters/Filters";
 import ProductTile from "../components/Product/ProductTile";
 import { getAllItems } from "../controllers/shopController";
-import { useQuery, QueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 const Home = () => {
-  const { data } = useQuery(["products"], getAllItems, { staleTime: 60000 });
-
+  const { data } = useQuery(["products"], getAllItems, { staleTime: 1000 });
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
@@ -58,7 +57,7 @@ const Home = () => {
             {data
               ? data.map((el, index) => {
                   return (
-                    <ProductTile name={el.name} key={index} src={el.src} />
+                    <ProductTile name={el.title} key={index} src={el.images[0]} />
                   );
                 })
               : ""}
