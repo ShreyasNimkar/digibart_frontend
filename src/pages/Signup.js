@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import postController from "../controllers/postController";
-const Signup = (reloader) => {
-  const [email, setEmail] = useState([]);
-  const [name, setName] = useState([]);
-  const [username, setUsername] = useState([]);
-  const [contact, setContact] = useState([]);
+import { signup } from "../controllers/authController";
+import { useNavigate } from "react-router-dom";
+
+const Signup = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const submitHandler = async () => {
@@ -13,11 +16,11 @@ const Signup = (reloader) => {
       email,
       name,
       username,
-      contact,
+      phoneNo,
       password,
       confirmPassword,
     };
-    await postController(formdata, reloader, "/challenge/raise");
+    if ((await signup(formdata)) === 1) navigate("/");
   };
   return (
     <div className="h-screen w-screen overflow-hidden">
@@ -51,18 +54,18 @@ const Signup = (reloader) => {
               <div className="mb-2">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="contact"
+                  htmlFor="phoneNo"
                 >
                   Contact
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="contact"
-                  type="integer"
+                  id="phoneNo"
+                  type="text"
                   placeholder="+91 XXXXX XXXXX"
-                  value={contact}
+                  value={phoneNo}
                   onChange={(el) => {
-                    setContact(el.target.value);
+                    setPhoneNo(el.target.value);
                   }}
                 />
               </div>

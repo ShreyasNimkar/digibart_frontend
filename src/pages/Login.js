@@ -1,15 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import postController from "../controllers/postController";
+import { login } from "../controllers/authController";
+import { useNavigate } from "react-router-dom";
 const Login = (reloader) => {
-  const [username, setUsername] = useState([]);
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const submitHandler = async () => {
     const formdata = {
       username,
       password,
     };
-    await postController(formdata, reloader, "/challenge/raise");
+    if (await login(formdata)) navigate("/");
   };
   return (
     <div className="h-screen w-screen overflow-hidden">
