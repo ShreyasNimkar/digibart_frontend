@@ -1,9 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Popover from "../components/Popover/Popover";
 import Filters from "../components/Filters/Filters";
 import ProductTile from "../components/Product/ProductTile";
+import { getAllItems } from "../controllers/shopController";
+import { useQuery, QueryClient } from "@tanstack/react-query";
 const Home = () => {
+  const { data } = useQuery(["products"], getAllItems, { staleTime: 60000 });
+
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
@@ -13,18 +16,18 @@ const Home = () => {
         <div className="w-10/12 h-95/100 bg-black border-1 border-white">
           <div className="h-10/100 flex justify-around items-center">
             <div className="w-1/6">asd</div>
-            <div class="flex justify-center items-center w-full">
-              <div class=" w-full flex justify-around items-center">
-                <div class=" input-group relative flex items-stretch w-4/5 ">
+            <div className="flex justify-center items-center w-full">
+              <div className=" w-full flex justify-around items-center">
+                <div className=" input-group relative flex items-stretch w-4/5 ">
                   <input
                     type="search"
-                    class="form-control rounded-l-3xl relative flex-auto min-w-0 block w-full px-3 py-0 text-base font-normal  text-gray-700 bg-slate-600 bg-clip-padding    transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    className="form-control rounded-l-3xl relative flex-auto min-w-0 block w-full px-3 py-0 text-base font-normal  text-gray-700 bg-slate-600 bg-clip-padding    transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Search"
                     aria-label="Search"
                     aria-describedby="button-addon2"
                   />
                   <button
-                    class="btn rounded-r-3xl inline-block px-6 py-2.5 bg-[#DC2ADE] text-white font-medium text-xs leading-tight uppercase  shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+                    className="btn rounded-r-3xl inline-block px-6 py-2.5 bg-[#DC2ADE] text-white font-medium text-xs leading-tight uppercase  shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                     type="button"
                     id="button-addon2"
                   >
@@ -33,7 +36,7 @@ const Home = () => {
                       focusable="false"
                       data-prefix="fas"
                       data-icon="search"
-                      class="w-4"
+                      className="w-4"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 512"
@@ -52,16 +55,13 @@ const Home = () => {
             </div>
           </div>
           <div className="h-90/100 flex items-start  pt-2 flex-wrap justify-around gap-x-2 gap-y-2 overflow-y-scroll">
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
-            <ProductTile />
+            {data
+              ? data.map((el, index) => {
+                  return (
+                    <ProductTile name={el.name} key={index} src={el.src} />
+                  );
+                })
+              : ""}
           </div>
         </div>
       </div>

@@ -11,6 +11,9 @@ export const signup = async (formData) => {
   console.log(res);
   if (res.status === 1) {
     Toaster.stopLoad(loader, "Account Created", 1);
+    Cookies.set("token", res.data.token, {
+      expires: Number(envHandler("TOKEN_TIME")),
+    });
     return 1;
   } else Toaster.stopLoad(loader, res.data.message, 0);
   return 0;
