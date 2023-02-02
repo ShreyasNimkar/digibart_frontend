@@ -13,7 +13,7 @@ const Home = () => {
           <Navbar />
         </div>
         <div className="w-10/12 h-95/100 rounded-tr-3xl bg-[rgba(0,0,0,0.75)] border-1 border-white">
-          <div className="h-10/100 flex justify-around items-center">
+          <div className="border-b-1 border-white h-10/100 flex justify-around items-center">
             <div className="w-1/6"></div>
             <div className="flex justify-center items-center w-full">
               <div className=" w-full flex justify-around items-center">

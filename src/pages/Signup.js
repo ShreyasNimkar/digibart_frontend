@@ -50,7 +50,7 @@ const Signup = () => {
                 }}
               />
             </div>
-            <div className="flex justify-between p-2 gap-3 items-center xs:flex-col ">
+            <div className="flex justify-between p-2 gap-3 items-center xs:flex-col sm:flex-row ">
               <div className="mb-2">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"

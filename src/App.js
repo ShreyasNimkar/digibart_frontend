@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Product from "./components/Product/Product";
 import Landing from "./pages/Landing";
 import Trade from "./pages/Trade";
+import Offers from "./pages/Offers";
 import {
   QueryClient,
   QueryClientProvider,
@@ -29,6 +30,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/trade" element={<Trade />} />
+            <Route path="/offers" element={<Offers />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

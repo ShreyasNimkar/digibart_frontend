@@ -6,16 +6,7 @@ import { getTradeItems } from "../controllers/shopController";
 import Cookies from "js-cookie";
 
 const Trade = ({ id }) => {
-  // const { data } = useQuery(["userTradeProducts"], getTradeItems(id), {
-  //   staleTime: 60000,
-  // });
-  // let myProducts;
-  // let otherUserProducts;
-  // if (data) {
-  //   myProducts = data.myProducts;
-  //   otherUserProducts = data.otherUserProducts;
-  // }
-  // console.log(myProducts);
+
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
