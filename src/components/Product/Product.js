@@ -5,7 +5,7 @@ const Product = () => {
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
-        <div className="sm:hidden md:hidden lg:block w-1/12 flex-col h-95/100  ">
+        <div className="xs:hidden md:block lg:block w-1/12 flex-col h-95/100  ">
           <Navbar />
         </div>
         <div className=" w-10/12 h-95/100 bg-black border-1 border-white">

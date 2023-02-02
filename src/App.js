@@ -31,6 +31,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/trade" element={<Trade />} />
             <Route path="/offers" element={<Offers />} />
+            <Route path="/product/:id" element={<Product />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
