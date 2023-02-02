@@ -14,6 +14,9 @@ export const signup = async (formData) => {
     Cookies.set("token", res.data.token, {
       expires: Number(envHandler("TOKEN_TIME")),
     });
+    Cookies.set("id", res.data.data.user_id, {
+      expires: Number(envHandler("TOKEN_TIME")),
+    });
     return 1;
   } else Toaster.stopLoad(loader, res.data.message, 0);
   return 0;
@@ -24,6 +27,9 @@ export const login = async (formData) => {
   if (res.status === 1) {
     Toaster.success("Logged In!");
     Cookies.set("token", res.data.token, {
+      expires: Number(envHandler("TOKEN_TIME")),
+    });
+    Cookies.set("id", res.data.data.user._id, {
       expires: Number(envHandler("TOKEN_TIME")),
     });
     return 1;

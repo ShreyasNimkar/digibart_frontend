@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Listings from "./pages/Listings";
 import Product from "./components/Product/Product";
 import Landing from "./pages/Landing";
+import Trade from "./pages/Trade";
 import {
   QueryClient,
   QueryClientProvider,
@@ -27,6 +28,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/products" element={<Listings />} />
+            <Route path="/trade" element={<Trade />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

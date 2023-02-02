@@ -17,12 +17,26 @@ export const getAllItems = async () => {
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };
 
-export const getUserItems = async () => {
+export const getUserItems = (id) => async () => {
   const loader = Toaster.startLoad("Loading your Products..");
-  const res = await postHandler(`${URL}/listed/`, {}, true);
+  const res = await postHandler(`${URL}/listed/${id}`, {}, true);
 
   if (res.status === 1) {
     Toaster.stopLoad(loader, "Products Loaded", 1);
     return res.data.data.products;
+  } else Toaster.stopLoad(loader, res.data.message, 0);
+};
+
+export const getTradeItems = (id) => async () => {
+  const loader = Toaster.startLoad("Loading your Products..");
+  const res = await postHandler(`${URL}/trade/${id}`, {}, true);
+
+  if (res.status === 1) {
+    Toaster.stopLoad(loader, "Products Loaded", 1);
+    const obj = {
+      myProducts: res.data.data.userProducts,
+      otherUserProducts: res.data.data.otherUserProducts,
+    };
+    return obj;
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };

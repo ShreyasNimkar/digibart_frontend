@@ -4,8 +4,10 @@ import ProductTile from "../components/Product/ProductTile";
 import AddProduct from "../AddProduct/AddProduct";
 import { useQuery } from "@tanstack/react-query";
 import { getUserItems } from "../controllers/shopController";
+import Cookies from "js-cookie";
 const Listings = () => {
-  const { data } = useQuery(["userProducts"], getUserItems, {
+  console.log(Cookies.get("id"));
+  const { data } = useQuery(["userProducts"], getUserItems(Cookies.get("id")), {
     staleTime: 60000,
   });
   return (
