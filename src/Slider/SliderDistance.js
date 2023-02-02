@@ -2,7 +2,7 @@ import React from "react";
 import * as Slider from "@radix-ui/react-slider";
 import "./styles.css";
 
-const SliderDemo = () => (
+const SliderDistance = () => (
   <Slider.Root
     className="SliderRoot w-full"
     min={0}
@@ -17,4 +17,4 @@ const SliderDemo = () => (
   </Slider.Root>
 );
 
-export default SliderDemo;
+export default SliderDistance;

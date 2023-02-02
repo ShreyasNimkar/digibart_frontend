@@ -3,7 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import "./styles.css";
 import { useState } from "react";
-import SliderDemo from "../Slider/Slider";
+import SliderCondition from "../Slider/SliderCondition";
 const AddProduct = () => {
   const [image, setImage] = useState(null);
 
@@ -149,7 +149,7 @@ const AddProduct = () => {
                 Condition on a scale of 0-5
               </label>
               <div className="w-full flex items-center justify-around">
-                <SliderDemo />
+                <SliderCondition />
               </div>
             </div>
             <div className="w-full flex flex-col justify-around items-center ">

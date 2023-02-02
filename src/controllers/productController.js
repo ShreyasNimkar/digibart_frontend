@@ -12,6 +12,6 @@ export const getAllItems = async () => {
 
   if (res.status === 1) {
     Toaster.stopLoad(loader, "Product added", 1);
-    return res.data.data;
+    return res.data.data.products;
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };

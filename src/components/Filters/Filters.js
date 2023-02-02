@@ -2,8 +2,8 @@ import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import "./styles.css";
-import SliderDemo from "../../Slider/Slider";
-
+import SliderDistance from "../../Slider/SliderDistance";
+import SliderPrice from "../../Slider/SliderPrice";
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
@@ -29,7 +29,7 @@ const DialogDemo = () => (
               Radius of Distance
             </label>
             <div className="w-full flex items-center justify-around">
-              <SliderDemo />
+              <SliderDistance />
             </div>
           </div>
           <div className="flex text-black justify-around items-center gap-3">
@@ -46,11 +46,7 @@ const DialogDemo = () => (
                 name="cars"
                 placeholder="General"
               >
-                <option
-                  placeholder="General"
-                  className="text-black"
-                  value="volvo"
-                >
+                <option placeholder="General" className="text-black" value="">
                   General
                 </option>
                 <option className="text-black" value="saab">
@@ -69,44 +65,45 @@ const DialogDemo = () => (
                 className="block w-full text-gray-700 text-sm font-bold mb-2"
                 htmlFor="Item Name"
               >
-                Tags
+                Price
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="username"
                 type="text"
-                placeholder="Tags here"
+                placeholder="Price"
               />
             </div>
           </div>
-          <div className="mb-2">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="Item Name"
-            >
-              Item Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Item Name"
-            />
-          </div>
-          <div className="mb-2">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="Item Name"
-            >
-              Description
-            </label>
-            <textarea
-              rows={3}
-              className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Description"
-            />
+          <div className="flex items-center justify-around">
+            <div class="flex items-center mb-4">
+              <input
+                id="default-checkbox"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                for="default-checkbox"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Enable Stacks
+              </label>
+            </div>
+            <div class="flex items-center mb-4">
+              <input
+                id="default-checkbox"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                for="default-checkbox"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Enable Solo
+              </label>
+            </div>
           </div>
 
           <div className="flex justify-around items-center gap-3">
@@ -117,12 +114,7 @@ const DialogDemo = () => (
               >
                 Estimated Cost
               </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
-                type="text"
-                placeholder="Rs.XXXX"
-              />
+              <SliderPrice />
             </div>
             <div className="mb-4">
               <label
@@ -142,11 +134,11 @@ const DialogDemo = () => (
 
           <div className="w-full flex flex-col justify-around items-center "></div>
         </form>
-        <div
-          style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}
-        >
+        <div>
           <Dialog.Close asChild>
-            <button className="Button green">Save changes</button>
+            <div className="flex items-center justify-around">
+              <button className="Button green ">Save changes</button>
+            </div>
           </Dialog.Close>
         </div>
         <Dialog.Close asChild>
