@@ -4,8 +4,35 @@ import Filters from "../components/Filters/Filters";
 import ProductTile from "../components/Product/ProductTile";
 import { getAllItems } from "../controllers/shopController";
 import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
+import postHandler from "../handlers/postHandler";
+import envHandler from "../managers/envHandler";
+
+
 const Home = () => {
-  const { data } = useQuery(["products"], getAllItems, { staleTime: 1000 });
+  const URL = `${envHandler("BACKEND_URL")}/shop`;
+  const [search, setSearch] = useState('')
+  const [query, setQuery] = useState()
+  const [products, setProducts] = useState()
+  useEffect(() => {
+    const getData = async () => {
+      if(query){
+        const res = await postHandler(`${URL}/${query}`, {}, true);
+        setProducts(res.data.data.products);
+      }
+      else{
+        const res = await postHandler(`${URL}/`, {}, true);
+        setProducts(res.data.data.products);
+      }
+    }
+
+    getData();
+    
+  }, [query])
+
+  const submitHandler=()=>{
+    setQuery(`?search=${search}`);
+  }
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
@@ -23,6 +50,8 @@ const Home = () => {
                     className="form-control rounded-l-3xl relative flex-auto min-w-0 block w-full px-3 py-0 text-base font-normal  text-gray-700 bg-slate-600 bg-clip-padding    transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Search"
                     aria-label="Search"
+                    value={search}
+                    onChange={el=>{setSearch(el.target.value)}}
                     aria-describedby="button-addon2"
                   />
                   <button
@@ -39,6 +68,7 @@ const Home = () => {
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 512"
+                      onClick={submitHandler}
                     >
                       <path
                         fill="currentColor"
@@ -55,8 +85,8 @@ const Home = () => {
           </div>
           <div className="h-90/100 overflow-y-scroll">
             <div className="h-1/2 flex items-start  pt-2 flex-wrap justify-around gap-x-2 gap-y-2 ">
-              {data
-                ? data.map((el, index) => {
+              {products
+                ? products.map((el, index) => {
                     return (
                       <ProductTile
                         name={el.title}
