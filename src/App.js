@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Listings from "./pages/Listings";
 import Product from "./components/Product/Product";
+import Landing from "./pages/Landing";
 import {
   QueryClient,
   QueryClientProvider,
@@ -21,7 +22,8 @@ function App() {
         <ToastContainer theme="dark" />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/products" element={<Listings />} />

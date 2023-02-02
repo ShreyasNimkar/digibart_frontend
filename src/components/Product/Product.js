@@ -23,7 +23,6 @@ const Product = () => {
                 <div className=" mt-2">Product Owner</div>
               </div>
               <div className="h-1/5 w-full flex justify-around items-center">
-                {" "}
                 <a
                   href="#_"
                   class="relative text-center w-1/3 p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md w-1/5"

@@ -20,7 +20,7 @@ const Signup = () => {
       password,
       confirmPassword,
     };
-    if ((await signup(formdata)) === 1) navigate("/");
+    if ((await signup(formdata)) === 1) navigate("/home");
   };
   return (
     <div className="h-screen w-screen overflow-hidden">

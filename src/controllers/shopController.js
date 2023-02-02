@@ -18,11 +18,10 @@ export const getAllItems = async () => {
 
 export const getUserItems = async () => {
   const loader = Toaster.startLoad("Loading your Products..");
-  const res = await getHandler(`${URL}/listed/`, true);
+  const res = await postHandler(`${URL}/listed/`, {}, true);
 
   if (res.status === 1) {
     Toaster.stopLoad(loader, "Products Loaded", 1);
     return res.data.data;
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };
-

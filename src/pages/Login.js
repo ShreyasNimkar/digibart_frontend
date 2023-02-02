@@ -11,7 +11,7 @@ const Login = (reloader) => {
       username,
       password,
     };
-    if (await login(formdata)) navigate("/");
+    if (await login(formdata)) navigate("/home");
   };
   return (
     <div className="h-screen w-screen overflow-hidden">

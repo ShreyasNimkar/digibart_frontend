@@ -14,7 +14,7 @@ const Home = () => {
         </div>
         <div className="w-10/12 h-95/100 bg-black border-1 border-white">
           <div className="h-10/100 flex justify-around items-center">
-            <div className="w-1/6">asd</div>
+            <div className="w-1/6"></div>
             <div className="flex justify-center items-center w-full">
               <div className=" w-full flex justify-around items-center">
                 <div className=" input-group relative flex items-stretch w-4/5 ">
@@ -57,7 +57,11 @@ const Home = () => {
             {data
               ? data.map((el, index) => {
                   return (
-                    <ProductTile name={el.title} key={index} src={el.images[0]} />
+                    <ProductTile
+                      name={el.title}
+                      key={index}
+                      src={el.images[0]}
+                    />
                   );
                 })
               : ""}
