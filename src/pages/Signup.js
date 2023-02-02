@@ -1,0 +1,176 @@
+import React from "react";
+import { useState } from "react";
+import postController from "../controllers/postController";
+const Signup = (reloader) => {
+  const [email, setEmail] = useState([]);
+  const [name, setName] = useState([]);
+  const [username, setUsername] = useState([]);
+  const [contact, setContact] = useState([]);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const submitHandler = async () => {
+    const formdata = {
+      email,
+      name,
+      username,
+      contact,
+      password,
+      confirmPassword,
+    };
+    await postController(formdata, reloader, "/challenge/raise");
+  };
+  return (
+    <div className="h-screen w-screen overflow-hidden">
+      <img
+        className="absolute h-full opacity-90 -z-30 -ml-40 mr-96"
+        src="./assets/blob3.svg"
+        alt="blob"
+      />
+      <div className="flex w-full h-full justify-around items-center ">
+        <div className="w-1/2">
+          <form className="bg-black shadow-md rounded-xl border-1 border-white px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4 px-2">
+              <label
+                className="block text-gray-700 text-sm font-bold "
+                htmlFor="name"
+              >
+                Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="Full Name"
+                value={name}
+                onChange={(el) => {
+                  setName(el.target.value);
+                }}
+              />
+            </div>
+            <div className="flex justify-around p-2 gap-3 items-center xs:flex-col ">
+              <div className="mb-2">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="contact"
+                >
+                  Contact
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="contact"
+                  type="integer"
+                  placeholder="+91 XXXXX XXXXX"
+                  value={contact}
+                  onChange={(el) => {
+                    setContact(el.target.value);
+                  }}
+                />
+              </div>
+              <div className="mb-2">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="username"
+                >
+                  Username
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="username"
+                  type="text"
+                  placeholder="Username"
+                  value={username}
+                  onChange={(el) => {
+                    setUsername(el.target.value);
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <div className="mb-3 px-2">
+                <label
+                  className="block text-gray-700 text-sm font-bold "
+                  htmlFor="email"
+                >
+                  Email ID
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  type="text"
+                  placeholder="john.doe@example.com"
+                  value={email}
+                  onChange={(el) => {
+                    setEmail(el.target.value);
+                  }}
+                />
+              </div>
+
+              <div className="flex p-2 gap-3 justify-around items-center">
+                <div className="">
+                  <label
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="password"
+                  >
+                    Password
+                  </label>
+                  <input
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    id="password"
+                    type="password"
+                    placeholder="******************"
+                    value={password}
+                    onChange={(el) => {
+                      setPassword(el.target.value);
+                    }}
+                  />
+                  {/* <p className="text-red-500 text-xs italic">
+            Please choose a password.
+          </p> */}
+                </div>
+                <div className="">
+                  <label
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="password"
+                  >
+                    Confirm Password
+                  </label>
+                  <input
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    id="confirmpassword"
+                    type="password"
+                    placeholder="******************"
+                    value={confirmPassword}
+                    onChange={(el) => {
+                      setConfirmPassword(el.target.value);
+                    }}
+                  />
+                  {/* <p className="text-red-500 text-xs italic">
+            Please choose a password.
+          </p> */}
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center flex-col justify-between">
+              <button
+                className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                onClick={submitHandler}
+              >
+                Register
+              </button>
+              <a
+                className="inline-block mt-3 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                href="#"
+              >
+                Already Have an account ?
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;
