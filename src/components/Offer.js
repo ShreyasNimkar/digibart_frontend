@@ -47,9 +47,9 @@ const Offer = () => {
     },
   };
   return (
-    <div className="flex flex-col h-4/5 gap-2">
+    <div className="flex flex-col h-4/5 gap-2 ">
       <div className="flex items-center overflow-hidden justify-around h-1/2">
-        <div className="w-1/3 gap-0.5 h-2/3 overflow-y-scroll flex flex-row flex-wrap items-center justify-around">
+        <div className="w-1/3 border-white border-1 gap-0.5 h-2/3 overflow-y-scroll flex flex-row flex-wrap items-center justify-around">
           <div className="h-full w-1/3 bg-yellow-400">asd</div>
           <div className="h-full w-1/3 bg-yellow-400">asd</div>{" "}
           <div className="h-full w-1/3 bg-yellow-400">asd</div>
@@ -58,7 +58,7 @@ const Offer = () => {
           <div className="h-full w-1/3 bg-yellow-400">asd</div>
         </div>
         <div>was offered for :</div>
-        <div className="w-1/3 gap-0.5 h-2/3 overflow-y-scroll flex flex-row flex-wrap items-center justify-around">
+        <div className="w-1/3 border-1 border-white border-1 gap-0.5 h-2/3 overflow-y-scroll flex flex-row flex-wrap items-center justify-around">
           <div className="h-full w-1/3 bg-yellow-400">asd</div>
           <div className="h-full w-1/3 bg-yellow-400">asd</div>{" "}
           <div className="h-full w-1/3 bg-yellow-400">asd</div>
@@ -94,7 +94,9 @@ const Offer = () => {
           </a>
         </div>
       </div>
-      <div className="w-full h-3/5">{/* <Bar /> */}</div>
+      <div className="w-full h-3/5 border-1 border-b-white">
+        {/* <Bar /> */}
+      </div>
     </div>
   );
 };
