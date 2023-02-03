@@ -15,3 +15,13 @@ export const getAllItems = async () => {
     return res.data.data.products;
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };
+
+export const getItem = (id) => async () => {
+  const loader = Toaster.startLoad("Loading your Product..");
+  const res = await getHandler(`${URL}/${id}`, true);
+
+  if (res.status === 1) {
+    Toaster.stopLoad(loader, "Loaded", 1);
+    return res.data.data;
+  } else Toaster.stopLoad(loader, res.data.message, 0);
+};

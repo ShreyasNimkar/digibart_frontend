@@ -1,7 +1,29 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../Navbar";
+import { getItem } from "../../controllers/productController";
+import { useQuery } from "@tanstack/react-query";
+import getHandler from "../../handlers/getHandler";
+import envHandler from "../../managers/envHandler";
+import { useEffect, useState } from "react";
 
 const Product = () => {
+  const {id} = useParams();
+
+  const URL = `${envHandler("BACKEND_URL")}/products/${id}`;
+
+  const [product, setProduct] = useState()
+  useEffect(() => {
+    const getData = async () => {
+        const res = await getHandler(`${URL}/`, true);
+        if(res.data) setProduct(res.data.data);
+    }
+
+    getData();
+    
+  }, [id])
+  console.log(product)
+  if(product)
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
@@ -11,16 +33,16 @@ const Product = () => {
         <div className=" w-10/12 h-95/100 bg-black border-1 border-white">
           <div className="flex w-full h-full justify-around items-center">
             <div className="w-1/3 p-2 h-full flex flex-col items-center justify-around">
-              <img className="p-2" src="/assets/blob3.svg" alt="" />
+              <img className="p-2" src={`${envHandler("BACKEND_URL")}/${product.images[0]}`} alt="" />
             </div>
             <div className="w-2/3 flex flex-col justify-center h-full">
               <div className="flex flex-col  pl-3 h-4/5 justify-center">
-                <div className="text-6xl">Product Name</div>
-                <div className=" mt-4">Product Category</div>
-                <div className=" mt-2">Product Description</div>
-                <div className=" mt-2">Product Life</div>
-                <div className=" mt-2">Estimated Value</div>
-                <div className=" mt-2">Product Owner</div>
+                <div className="text-6xl">{product.title}</div>
+                <div className=" mt-4">{product.category}</div>
+                <div className=" mt-2">{product.description}</div>
+                <div className=" mt-2">{product.age}</div>
+                <div className=" mt-2">{product.mrp}</div>
+                <div className=" mt-2">{product.listedBy.username}</div>
               </div>
               <div className="h-1/5 w-full flex justify-around items-center">
                 <a

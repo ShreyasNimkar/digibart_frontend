@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import postHandler from "../handlers/postHandler";
 import envHandler from "../managers/envHandler";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -88,11 +89,11 @@ const Home = () => {
               {products
                 ? products.map((el, index) => {
                     return (
-                      <ProductTile
-                        name={el.title}
-                        key={index}
-                        src={el.images[0]}
-                      />
+                    <Link to={`/product/${el._id}`}><ProductTile
+                    name={el.title}
+                    key={index}
+                    src={el.images[0]}
+                  /></Link>
                     );
                   })
                 : ""}
