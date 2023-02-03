@@ -6,7 +6,7 @@ import { useState } from "react";
 import SliderCondition from "../Slider/SliderCondition";
 import {addItem} from "../controllers/productController";
 
-const AddProduct = () => {
+const AddProduct = ({reload}) => {
   const [image, setImage] = useState(null);
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState();
@@ -42,7 +42,7 @@ const AddProduct = () => {
 
     console.log(formData)
     await addItem(formData);
-
+    reload(Math.random())
   };
   return (
     <Dialog.Root>
