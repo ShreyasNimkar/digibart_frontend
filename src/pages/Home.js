@@ -33,6 +33,11 @@ const Home = () => {
   };
   return (
     <div className="h-screen overflow-hidden">
+      <img
+        className="absolute h-full opacity-90 -z-30 -ml-40 mr-96"
+        src="./assets/blob3.svg"
+        alt="blob"
+      />
       <div className="h-full flex items-center justify-around">
         <div className="sm:hidden md:block  w-1/12 flex-col h-95/100  ">
           <Navbar />

@@ -16,6 +16,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
+import History from "./pages/History";
 
 const queryClient = new QueryClient();
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/trade" element={<Trade />} />
             <Route path="/offers" element={<Offers />} />
+            <Route path="/history" element={<History />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/user/:id" element={<UserProfile />} />
           </Routes>
