@@ -3,9 +3,11 @@ import envHandler from "../../managers/envHandler";
 
 const ProductTile = ({ name, src }) => {
   return (
-    <div className="xs:w-3/4 xs:gap-1 sm:w-1/2 md:w-1/4  h-full bg-red-700">
-      {name}
-      <img src={`${envHandler("BACKEND_URL")}/${src}`} alt="" />
+    <div className="h-full w-full bg-red-700">
+      <div className="px-24 py-32">
+        <div className="w-full flex items-center justify-start">{name}</div>
+        <img src={`${envHandler("BACKEND_URL")}/${src}`} alt="" />
+      </div>
     </div>
   );
 };

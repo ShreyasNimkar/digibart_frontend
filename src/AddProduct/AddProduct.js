@@ -4,13 +4,13 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import "./styles.css";
 import { useState } from "react";
 import SliderCondition from "../Slider/SliderCondition";
-import {addItem} from "../controllers/productController";
+import { addItem } from "../controllers/productController";
 
 const AddProduct = () => {
   const [image, setImage] = useState(null);
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState();
-  const [description, setDescription] = useState()
+  const [description, setDescription] = useState();
   const [mrp, setMrp] = useState();
   const [lat, setLat] = useState();
   const [long, setLong] = useState();
@@ -19,7 +19,7 @@ const AddProduct = () => {
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setImages(event.target.files)
+      setImages(event.target.files);
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
@@ -28,8 +28,8 @@ const AddProduct = () => {
       setLat(position.coords.latitude);
       setLong(position.coords.longitude);
     });
-    const tempImg = [...images]
-    const formData={
+    const tempImg = [...images];
+    const formData = {
       title,
       description,
       mrp,
@@ -37,15 +37,14 @@ const AddProduct = () => {
       lat: lat.toString(),
       long: long.toString(),
       category,
-      images:tempImg
-    }
+      images: tempImg,
+    };
 
-    console.log(formData)
+    console.log(formData);
     await addItem(formData);
-
   };
   return (
-    <Dialog.Root>
+    <Dialog.Root className="top-0">
       <Dialog.Trigger asChild>
         <button className="Button violet" size="large">
           Add Item
@@ -72,7 +71,9 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Item Name"
                 value={title}
-                onChange={el=>{setTitle(el.target.value)}}
+                onChange={(el) => {
+                  setTitle(el.target.value);
+                }}
               />
             </div>
             <div className="mb-2">
@@ -89,7 +90,9 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Description"
                 value={description}
-                onChange={el=>{setDescription(el.target.value)}}
+                onChange={(el) => {
+                  setDescription(el.target.value);
+                }}
               />
             </div>
             <div className="flex text-black justify-around items-center gap-3">
@@ -106,7 +109,9 @@ const AddProduct = () => {
                   name="category"
                   placeholder="General"
                   value={category}
-                  onChange={el=>{setCategory(el.target.value)}}
+                  onChange={(el) => {
+                    setCategory(el.target.value);
+                  }}
                 >
                   <option
                     placeholder="General"
@@ -116,10 +121,10 @@ const AddProduct = () => {
                     General
                   </option>
                   <option className="text-black" value="saab">
-                    Saab
+                    Electronics
                   </option>
                   <option className="text-black" value="fiat">
-                    Fiat
+                    Furniture/Appliance
                   </option>
                   <option className="text-black" value="audi">
                     Audi
@@ -156,7 +161,9 @@ const AddProduct = () => {
                   name="mrp"
                   placeholder="Rs.XXXX"
                   value={mrp}
-                onChange={el=>{setMrp(el.target.value)}}
+                  onChange={(el) => {
+                    setMrp(el.target.value);
+                  }}
                 />
               </div>
               <div className="mb-4">
@@ -173,7 +180,9 @@ const AddProduct = () => {
                   type="text"
                   placeholder="(years)"
                   value={age}
-                onChange={el=>{setAge(el.target.value)}}
+                  onChange={(el) => {
+                    setAge(el.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -210,7 +219,7 @@ const AddProduct = () => {
               </div>
             </div>
           </form>
-          <div className="flex items-center justify-around mt-3">
+          <div className="flex items-center justify-around ">
             <Dialog.Close asChild>
               <button onClick={submitHandler} className="Button green">
                 Save changes

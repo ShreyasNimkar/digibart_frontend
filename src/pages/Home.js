@@ -9,31 +9,28 @@ import postHandler from "../handlers/postHandler";
 import envHandler from "../managers/envHandler";
 import { Link } from "react-router-dom";
 
-
 const Home = () => {
   const URL = `${envHandler("BACKEND_URL")}/shop`;
-  const [search, setSearch] = useState('')
-  const [query, setQuery] = useState()
-  const [products, setProducts] = useState()
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState();
+  const [products, setProducts] = useState();
   useEffect(() => {
     const getData = async () => {
-      if(query){
+      if (query) {
         const res = await postHandler(`${URL}/${query}`, {}, true);
         setProducts(res.data.data.products);
-      }
-      else{
+      } else {
         const res = await postHandler(`${URL}/`, {}, true);
         setProducts(res.data.data.products);
       }
-    }
+    };
 
     getData();
-    
-  }, [query])
+  }, [query]);
 
-  const submitHandler=()=>{
+  const submitHandler = () => {
     setQuery(`?search=${search}`);
-  }
+  };
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
@@ -52,7 +49,9 @@ const Home = () => {
                     placeholder="Search"
                     aria-label="Search"
                     value={search}
-                    onChange={el=>{setSearch(el.target.value)}}
+                    onChange={(el) => {
+                      setSearch(el.target.value);
+                    }}
                     aria-describedby="button-addon2"
                   />
                   <button
@@ -85,15 +84,18 @@ const Home = () => {
             </div>
           </div>
           <div className="h-90/100 overflow-y-scroll">
-            <div className="h-1/2 flex items-start  pt-2 flex-wrap justify-around gap-x-2 gap-y-2 ">
+            <div className="h-full flex items-start pt-2 flex-wrap justify-around gap-x-2 gap-y-2 ">
               {products
                 ? products.map((el, index) => {
                     return (
-                    <Link to={`/product/${el._id}`}><ProductTile
-                    name={el.title}
-                    key={index}
-                    src={el.images[0]}
-                  /></Link>
+                      <Link to={`/product/${el._id}`}>
+                        <ProductTile
+                          className="h-full w-full"
+                          name={el.title}
+                          key={index}
+                          src={el.images[0]}
+                        />
+                      </Link>
                     );
                   })
                 : ""}

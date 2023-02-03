@@ -6,7 +6,6 @@ import { getTradeItems } from "../controllers/shopController";
 import Cookies from "js-cookie";
 
 const Trade = ({ id }) => {
-
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
