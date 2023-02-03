@@ -23,7 +23,7 @@ export const getUserItems = (id) => async () => {
 
   if (res.status === 1) {
     Toaster.stopLoad(loader, "Products Loaded", 1);
-    return res.data.data.products;
+    return res.data.data;
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };
 

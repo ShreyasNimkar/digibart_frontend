@@ -6,11 +6,16 @@ import { useQuery } from "@tanstack/react-query";
 import { getUserItems } from "../controllers/shopController";
 import Cookies from "js-cookie";
 import AddStack from "../AddStack/AddStack";
+import { useState, useEffect } from "react";
+
 const Listings = () => {
+  const [products, setProducts] = useState([])
+  const [stacks, setStacks] = useState([])
   console.log(Cookies.get("id"));
-  const { data } = useQuery(["userProducts"], getUserItems(Cookies.get("id")), {
+  const { data } = useQuery(["userProductsAndStack"], getUserItems(Cookies.get("id")), {
     staleTime: 60000,
   });
+  console.log(data)
   return (
     <div className="h-screen overflow-hidden">
       <div className="h-full flex items-center justify-around">
@@ -30,7 +35,7 @@ const Listings = () => {
           <div className=" h-3/4 full flex gap-3 flex-col overflow-y-hidden">
             <div className="h-1/2 w-full flex gap-2 flex-col flex-wrap items-start overflow-x-scroll justify-around">
               {data
-                ? data.map((el, index) => {
+                ? data.products.map((el, index) => {
                     return (
                       <ProductTile
                         name={el.title}
@@ -45,13 +50,17 @@ const Listings = () => {
               <AddProduct />
             </div>
             <div className="h-1/2 w-full flex gap-2 flex-col flex-wrap items-start overflow-x-scroll justify-around">
-              <ProductTile />
-              <ProductTile />
-              <ProductTile />
-
-              <ProductTile />
-              <ProductTile />
-              <ProductTile />
+            {data
+                ? data.stacks.map((el, index) => {
+                    return (
+                      <ProductTile
+                        name={el.title}
+                        key={index}
+                        src={el.images[0]}
+                      />
+                    );
+                  })
+                : ""}
             </div>
           </div>
           <div className="absolute p-5 bottom-0 right-0">
