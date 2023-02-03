@@ -6,8 +6,11 @@ import "./styles.css";
 const AddStack = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <button className="Button violet" size="large">
-        Add Stack
+      <button
+        className="Button bg-white rounded-full text-black text-6xl"
+        size="small"
+      >
+        <span className="rounded-full text-4xl text-black">+</span>
       </button>
     </Dialog.Trigger>
     <Dialog.Portal>

@@ -39,7 +39,7 @@ input {
 .DialogTitle {
   margin: 0;
   font-weight: 500;
-  color: var(--mauve12);
+  color: black;
   font-size: 17px;
 }
 

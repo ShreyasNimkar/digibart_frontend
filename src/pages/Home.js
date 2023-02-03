@@ -44,13 +44,12 @@ const Home = () => {
         </div>
         <div className="w-10/12 h-95/100 rounded-tr-3xl bg-[rgba(0,0,0,0.75)] border-1 border-white">
           <div className="border-b-1 border-white h-10/100 flex justify-around items-center">
-            <div className="w-1/6"></div>
             <div className="flex justify-center items-center w-full">
               <div className=" w-full flex justify-around items-center">
-                <div className=" input-group relative flex items-stretch w-4/5 ">
+                <div className="border-white rounded-3xl   border-2 input-group relative flex items-stretch w-4/5 ">
                   <input
                     type="search"
-                    className="form-control rounded-l-3xl relative flex-auto min-w-0 block w-full px-3 py-0 text-base font-normal  text-gray-700 bg-slate-600 bg-clip-padding    transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    className="form-control rounded-l-3xl relative flex-auto min-w-0 block w-full px-3 py-0 text-base font-normal  text-gray-700 bg-white bg-clip-padding    transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Search"
                     aria-label="Search"
                     value={search}
@@ -60,7 +59,7 @@ const Home = () => {
                     aria-describedby="button-addon2"
                   />
                   <button
-                    className="btn rounded-r-3xl inline-block px-6 py-2.5 bg-[#DC2ADE] text-white font-medium text-xs leading-tight uppercase  shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+                    className="btn rounded-r-3xl  px-6 py-2.5 bg-[#000000]   text-white font-medium text-xs leading-tight uppercase shadow-md cursor-pointer hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                     type="button"
                     id="button-addon2"
                   >

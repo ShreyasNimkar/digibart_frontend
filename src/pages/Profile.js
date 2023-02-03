@@ -38,14 +38,14 @@ const Listings = () => {
       <div className="h-screen overflow-hidden">
         <img
           className="absolute h-full opacity-90 -z-30 -ml-40 mr-96"
-          src="./assets/blob"
-          alt="blob"
-        />
-        <img
-          className="absolute h-full opacity-90 -z-30 bottom-0 right-0"
           src="./assets/blob1.png"
           alt="blob"
         />
+        {/* <img
+          className="absolute h-full opacity-90 -z-30 bottom-0 right-0"
+          src="./assets/mossyfern.png"
+          alt="blob"
+        /> */}
         <div className="h-full flex items-center justify-around">
           <div className="xs:hidden md:block lg:block w-1/12 flex-col h-95/100  ">
             <Navbar />
@@ -53,21 +53,25 @@ const Listings = () => {
           <div className="relative w-10/12 h-95/100 rounded-tr-3xl bg-[rgba(0,0,0,0.75)] border-1 border-white">
             <div className="border-b-1 border-white h-1/4 w-full flex justify-between items-center">
               <div className=" xs:w-3/4 xs:h-3/4 sm:w-1/2 sm:h-full md:h-full md:w-full h-full flex justify-around items-center">
-                <div className="flex justify-start items-center">
+                <div className="flex justify-evenly items-center">
                   <img
-                    className=" w-full h-full rounded-full border-1 border-white"
-                    src={`${envHandler("BACKEND_URL")}/users/profilePics/${
-                      user.profilePic
-                    }`}
+                    className=" w-1/6 h-1/6 rounded-full border-1 border-white"
+                    // src={`${envHandler("BACKEND_URL")}/users/profilePics/${
+                    //   user.profilePic
+                    // }`}
+                    src={
+                      "https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png"
+                    }
                     alt="A"
                   />
+                  <div className="w-3/5 h-1/2">
+                    Name : <br />
+                    <span className="text-4xl">{user.name}</span>
+                  </div>
                 </div>
-                <div className="w-1/5">
-                  Name : <br />
-                  {user.name}
-                </div>
-                <div className="w-1/5">
-                  Username : <br />@{user.username}
+                <div className="w-2/5">
+                  Username : <br />
+                  <span className="text-4xl">@{user.username}</span>
                 </div>
               </div>
             </div>
@@ -84,6 +88,9 @@ const Listings = () => {
                       );
                     })
                   : ""}
+              </div>
+              <div className="absolute p-5 bottom-70 left-0 text-3xl">
+                Solos
               </div>
               <div className="absolute p-5 bottom-70 right-0">
                 <AddProduct reload={setReload} />
@@ -105,6 +112,7 @@ const Listings = () => {
             <div className="absolute p-5 bottom-0 right-0">
               <AddStack reload={setReload} />
             </div>
+            <div className="absolute p-5 bottom-0 left-0 text-3xl">Stacks</div>
           </div>
         </div>
       </div>

@@ -7,7 +7,10 @@ import SliderPrice from "../../Slider/SliderPrice";
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <button className="Button violet w-1/2" size="large">
+      <button
+        className="Button bg-white text-black cursor-pointer hover:bg-black hover:text-white  hover:border-white hover:border-2"
+        size="large"
+      >
         Filters
       </button>
     </Dialog.Trigger>
@@ -136,8 +139,10 @@ const DialogDemo = () => (
         </form>
         <div>
           <Dialog.Close asChild>
-            <div className="flex items-center justify-around">
-              <button className="Button green ">Save changes</button>
+            <div className="flex items-center justify-around cursor-pointer">
+              <button className="Button bg-black hover:bg-gray-500 hover:text-white hover:border-black hover:border-1">
+                Search
+              </button>
             </div>
           </Dialog.Close>
         </div>
