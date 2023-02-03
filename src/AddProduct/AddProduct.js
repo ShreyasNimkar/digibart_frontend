@@ -4,19 +4,45 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import "./styles.css";
 import { useState } from "react";
 import SliderCondition from "../Slider/SliderCondition";
+import {addItem} from "../controllers/productController";
+
 const AddProduct = () => {
   const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState()
+  const [mrp, setMrp] = useState();
+  const [lat, setLat] = useState();
+  const [long, setLong] = useState();
+  const [category, setCategory] = useState();
+  const [age, setAge] = useState();
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
+      setImages(event.target.files)
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
-  const submitHandler = () => {
+  const submitHandler = async () => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
     });
+    const tempImg = [...images]
+    const formData={
+      title,
+      description,
+      mrp,
+      age,
+      lat: lat.toString(),
+      long: long.toString(),
+      category,
+      images:tempImg
+    }
+
+    console.log(formData)
+    await addItem(formData);
+
   };
   return (
     <Dialog.Root>
@@ -42,9 +68,11 @@ const AddProduct = () => {
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
+                id="title"
                 type="text"
                 placeholder="Item Name"
+                value={title}
+                onChange={el=>{setTitle(el.target.value)}}
               />
             </div>
             <div className="mb-2">
@@ -57,9 +85,11 @@ const AddProduct = () => {
               <textarea
                 rows={1}
                 className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
+                id="description"
                 type="text"
                 placeholder="Description"
+                value={description}
+                onChange={el=>{setDescription(el.target.value)}}
               />
             </div>
             <div className="flex text-black justify-around items-center gap-3">
@@ -73,8 +103,10 @@ const AddProduct = () => {
                 <select
                   className="w-full shadow appearance-none border rounded py-2  text-gray-400  focus:outline-none focus:shadow-outline"
                   id="cars"
-                  name="cars"
+                  name="category"
                   placeholder="General"
+                  value={category}
+                  onChange={el=>{setCategory(el.target.value)}}
                 >
                   <option
                     placeholder="General"
@@ -121,7 +153,10 @@ const AddProduct = () => {
                   className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="username"
                   type="text"
+                  name="mrp"
                   placeholder="Rs.XXXX"
+                  value={mrp}
+                onChange={el=>{setMrp(el.target.value)}}
                 />
               </div>
               <div className="mb-4">
@@ -134,8 +169,11 @@ const AddProduct = () => {
                 <input
                   className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="username"
+                  name="age"
                   type="text"
                   placeholder="(years)"
+                  value={age}
+                onChange={el=>{setAge(el.target.value)}}
                 />
               </div>
             </div>
@@ -162,9 +200,10 @@ const AddProduct = () => {
                   className="shadow appearance-none border rounded w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="files"
                   type="file"
-                  name="files"
+                  name="images"
                   multiple
                   placeholder=""
+                  accept="image/*"
                   onChange={onImageChange}
                 />
                 <img className="h-10" src={image} alt="" />
