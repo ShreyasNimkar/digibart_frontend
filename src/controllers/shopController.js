@@ -17,7 +17,7 @@ export const getAllItems = async () => {
   } else Toaster.stopLoad(loader, res.data.message, 0);
 };
 
-export const getUserItems = (id) => async () => {
+export const getUserItems = async (id) => {
   const loader = Toaster.startLoad("Loading your Products..");
   const res = await postHandler(`${URL}/listed/${id}`, {}, true);
 
